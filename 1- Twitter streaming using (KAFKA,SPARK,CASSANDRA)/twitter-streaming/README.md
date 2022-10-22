@@ -1,6 +1,6 @@
 # Twitter Streaming
 
-In this work and using the best practicies, a realtime data pipline has been built to generate tweet metrics for Coutries arround the world.
+In this work, using the best practicies, a realtime data pipline has been built to generate tweet metrics for Coutries arround the world.
 
 The goal is to have the total number of tweets,retweets and active tweeters per City over a 5 minute interval.
 
