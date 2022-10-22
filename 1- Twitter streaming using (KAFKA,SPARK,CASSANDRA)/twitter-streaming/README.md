@@ -28,7 +28,7 @@ a docker-compose file has been created, which upon start up will spin up the con
 #### B. Producer:
 An encapsulated module was written for the purpose of streaming from twitter and producing to kafka, this can be upgraded by adding a generic filter or rules.
 
-The producer has been updated so it can handle full kafka outages, when full kafka outage occurs the producer will write messages to disk instead of keep them in memory, please refer to section "8- Survive Kafka outages" for more details.
+The producer app has been adapted so it can handle full kafka outages, when full kafka outage occurs the producer will write messages to disk instead of keep them in memory, please refer to section "8- Survive Kafka outages" for more details.
 
 #### C. Stream processor:
 A python driver script has been written to run against the master spark, the job will perform structured streaming from Kafka to Cassandra. The job will aggregate by city,time for a window of 5 minutes, it will also run every 1 minute.
