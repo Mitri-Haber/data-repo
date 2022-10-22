@@ -1,5 +1,10 @@
-# Challenge 3 - EvilNet rules the world
+# Twitter Streaming
 
+In this work and using the best practicies, a realtime data pipline has been built to generate tweet metrics for Coutries arround the world.
+
+The goal is to have the total number of tweets,retweets and active tweeters per City over a 5 minute interval.
+
+The aggregated data is visualized using grafana, the visualiser allows visualizing the trends, and is reactive with time intevals.
 
 ## 1 - Architecture
 
@@ -78,7 +83,7 @@ The approach is not perfect, but on the plus side the visualiser will display fo
 
 The $__timeFrom and date <= $__timeTo can be controlled from the time bar and are passed to the query.
 
-The idea of using cassandra for this challenge is to explore it and learn it, as it provides high performance and scalability. The query issue can be solved by switching to mongodb or pgsql,mysql.
+The motive of using cassandra for is to explore it and learn it, as it provides high performance and scalability. The query issue can be solved by switching to mongodb or pgsql,mysql.
 
 ![](images/trends.png)
 
@@ -106,7 +111,7 @@ It's possible to miss messages coming from twitter due to routing or networking 
 
  Twitter infra is mostly on GCP and it's preferable to deploy next to an edge there, or in a GCP datacenter.
 
- If Evilnet are rooting for top accuracy, It's possible to do fidelity testing by streaming twitter data from multiple cloud locations.
+ If we are rooting for top accuracy, It's possible to do fidelity testing by streaming twitter data from multiple cloud locations.
 
  The process of streaming will start at the same time on similar machines but in different locations, it will endure for a large enough window, data can be collected for comparison.
 
@@ -132,7 +137,7 @@ If you don't need the test and did not activate the IS_TEST, it's better to remo
 
 ## 6 - resource footprint analysis
   
-Kafka queues and tables will have retention period, this will limit storage usage.
+Kafka queues and cassandra tables can have retention period, this will limit storage usage.
 
 We can monitor the components using prometheus and grafana.
          
@@ -145,7 +150,7 @@ In this pipline we need to take care of two main components, the producer, and t
 
 The rest of the components are scalable by nature (kafka,spark,cassandra), if we manage these clusters we can monitor the nodes, and add nodes when needed.
         
- #### Producer scalability:
+ #### Producer Scalability:
 
  #### Strategy 1:
 
@@ -163,7 +168,7 @@ We can scale by adding producer containers that have specific County/Countries a
 
 ![](images/producer.png)
 
-The last startegy can really ease up the deploy especially if EvilNet wants to scale for the whole cities.
+The last startegy can really ease up the deploy especially if we wants to scale for the whole cities.
 
 It's possible to combine the last two strategies for swift and effective scaling.
 
