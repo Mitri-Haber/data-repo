@@ -79,7 +79,7 @@ In this work, we got reasonable errors for a POC, however this model cannot be p
 
 The data points are not enough to train such complex model, with more data from the internet provider, it's possible to reach a much more precise model.
 
-It's challenging to reach a perfect precision with such models, however in production error corrections could be added to the matrix, for example for each feature we could continuously compute the MAE and std of MAE (similar to the ones in the previous section) and add the error for each feature.
+It's challenging to reach a perfect precision with such models, however in production error corrections could be added to the matrix, for example for each feature we could continuously compute the MAE and std of MAE of previous steps  and add the error for each feature.
 
 To handle data drift, we need two prediction/training engines, one engine will be training the model on new data, and the other is serving predictions.
 
