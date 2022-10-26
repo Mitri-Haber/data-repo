@@ -51,17 +51,13 @@ The validation of this model is not straight forward, unlike other models, this 
 
 For example, each input and output is a 12 x 12 matrix  (144 feature), where we need to have precision on each feature.
 
-The loss and metrics provided by ml frameworks will aggregate the features to have a single value metric.
-
-
-
 Since we have a lot of features, the aggregation of MAE into a single number will dissolve the meaning and contribution of the Error because of the high dimensionality.
 
 For exp: the prediction of a 20 X 20 traffic matrix (400 feature), could have 399 of the values predicted precisely except for 1 and this could be catastrophic when using the traffic matrix to operate networks. 
 
 Because we are dividing the error of this feature by a high dimension, we will lose its importance.
 
-Other than the aggregated metrics provided by TensorFlow in our case, another validation measure should be done, we need an MAE for each feature.
+Other than the aggregated singular MAE, we need an MAE for each feature.
 
 The below visualizes a 12 * 12 MAE matrix along the time steps of the validation data. 
 
