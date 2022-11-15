@@ -41,7 +41,7 @@ The loss and metric for this model should be MAE, because when using MSE we will
 
 In previous trainings for this model HUBER loss was used, this will return MAE when the error is between 0-1, and MSE if the error is larger than 1.
 
-Therefore, we will penalize large errors using MSE, and will not have a false sense of optimization when errors are smaller than 1.
+Therefore, we will penalize large errors using MAE, and will not have a false sense of optimization when errors are smaller than 1.
 
 ## 4- Training, validation
 
